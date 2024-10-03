@@ -4,7 +4,7 @@ import { getData } from '../utils/storage/Storage';
 
 
 const instance = axios.create({
-  baseURL: 'http://192.168.8.100:8080',
+  baseURL: 'http://172.20.10.2:8080',
   //baseURL: 'http://89.116.20.123:8080/api-0.0.1-SNAPSHOT',
   headers: {},
 });

@@ -102,12 +102,13 @@ export default function Dashboard({navigation}) {
         }
       },[orderData.data,orderData.isSuccess])
 
-      useFocusEffect(
-        React.useCallback(() => {
-            setIsPressed('new');
-            getAllOrder('new')
-        }, [])
-    );
+    //   useFocusEffect(
+    //     React.useCallback(() => {
+    //         setIsPressed('new');
+    //         getAllOrder('new')
+    //         //console.log("waduna");
+    //     }, [])
+    // );
 
   return (
     <View style={{height:"100%",backgroundColor:'#d5f0f5',padding:10}}>
@@ -116,15 +117,21 @@ export default function Dashboard({navigation}) {
             
             <View style={{flexDirection:'row',padding:4,marginTop:10}}>
                 <View style={{flex:1,justifyContent:'flex-end',alignItems:'center'}}>
-                <Ionicons name="person-circle-outline" size={38} color="black" />
+                    <Ionicons name="person-circle-outline" size={38} color="black" />
                 </View>
                 <View style={{flex:6}}> 
                     <Text style={{color:'black',fontSize:16,fontFamily:"Dosis-Regular"}}>{getTimeOfDay()}</Text>
                     <Text style={{color:'#1d86f0',fontSize:22,fontFamily:boldFont}}>{userName.toUpperCase()}</Text>
                 </View>
                 <TouchableOpacity onPress={()=>{navigation.navigate('Notifications')}}>
-                    <View style={{flex:1,justifyContent:'center'}}>
-                        <Ionicons name="notifications" size={25} color="black" />
+                    <View style={{flex:2,justifyContent:'center',position:'relative'}}>
+                        <View>
+                            <Ionicons name="notifications" size={30} color="black" />
+                        </View>
+                        <View style={{display:'flex',justifyContent:'center',alignItems:'center',height:19,width:19,backgroundColor:'red',borderColor:'red',borderWidth:1,borderRadius:10,position:'absolute',left:16,top:5}}>
+                            <Text style={{color:'white',fontSize:12,fontFamily:"Dosis-Bold"}}>2</Text>
+                        </View>
+                        
                     </View>
                 </TouchableOpacity>
                
@@ -311,5 +318,8 @@ const styles = StyleSheet.create({
         color:'black',
         fontSize:16,
         fontFamily:'Dosis-SemiBold'
+     },
+     abslt:{
+        position:"absolute"
      }
   });
